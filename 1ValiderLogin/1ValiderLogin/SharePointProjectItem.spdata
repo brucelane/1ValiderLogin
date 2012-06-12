@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="1ValiderLoginUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="1ValiderLogin\" Type="ElementManifest" />
+    <ProjectItemFile Source="1ValiderLogin.webpart" Target="1ValiderLogin\" Type="ElementFile" />
+    <ProjectItemFile Source="1ValiderLoginUserControl.ascx" Target="CONTROLTEMPLATES\_1ValiderLogin\VisualWebPart1\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="_1ValiderLogin.VisualWebPart1" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>
