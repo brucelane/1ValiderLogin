@@ -417,27 +417,33 @@ namespace _1ValiderLogin.VisualWebPart1
             string prenom2;
             char[] charSplit = new char[] { '-' };
 
-            if (txtPrenom.Text.Contains("-") == true) // gere les prenom composés
+            Prenom = txtPrenom.Text.Trim();
+            if (Prenom.Contains("-") == true) // gere les prenom composés
             {
-                PrenomComp = txtPrenom.Text.Split(charSplit);
+                PrenomComp = Prenom.Split(charSplit);
                 prenom1 = PrenomComp[0].ToLower();
                 prenom2 = PrenomComp[1].ToLower();
                 Prenom = prenom1[0].ToString().ToUpper() + prenom1.Substring(1).ToLower() + "-" + prenom2[0].ToString().ToUpper() + prenom2.Substring(1).ToLower();
             }
             else
             {
-                Prenom = txtPrenom.Text.ToLower();
+
+                if (Prenom.Length > 2)
+                {
+                    prenom1 = txtPrenom.Text;
+                    Prenom = prenom1[0].ToString().ToUpper() + prenom1.Substring(1).ToLower();
+                }            
             }
             //log.EcrireLog("ValiderLogin.txt", Prenom, true);
  
             SPList list = spContext.Web.Lists["Demande Nouvel Arrivant"];
             ligneInfo = list.AddItem();
             //log.EcrireLog("ValiderLogin.txt", "ligneInfo.AddItem", true);
-            ligneInfo["Nom bénéficiaire"] = NeverNull(txtNom.Text).ToUpper();
+            ligneInfo["Nom bénéficiaire"] = NeverNull(txtNom.Text.Trim()).ToUpper();
             //log.EcrireLog("ValiderLogin.txt", "Nom bénéficiaire", true);
             ligneInfo["Prénom bénéficiaire"] = NeverNull(Prenom);
             //log.EcrireLog("ValiderLogin.txt", "Prénom bénéficiaire", true);
-            ligneInfo["Login"] = NeverNull(txtLogin.Text);
+            ligneInfo["Login"] = NeverNull(txtLogin.Text.Trim());
             //log.EcrireLog("ValiderLogin.txt", "Login", true);
             ligneInfo["Demandeur"] = NeverNull(lblNomCompletD.Text);
             //log.EcrireLog("ValiderLogin.txt", "Demandeur", true);

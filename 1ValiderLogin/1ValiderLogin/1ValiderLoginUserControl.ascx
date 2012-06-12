@@ -123,5 +123,5 @@
             </table>
         </div>
 <p>
-    version 1.0.3</p>
+    version 1.0.4 (12 juin 2012)</p>
 
